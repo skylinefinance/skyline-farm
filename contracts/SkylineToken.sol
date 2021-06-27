@@ -241,6 +241,7 @@ contract SkylineToken is BEP20 {
      */
     function updateMaxTransferAmountRate(uint16 _maxTransferAmountRate) public onlyOperator {
         require(_maxTransferAmountRate <= 10000, "SKY::updateMaxTransferAmountRate: Max transfer amount rate must not exceed the maximum rate.");
+        require(_maxTransferAmountRate >= 30, "SKY::updateMaxTransferAmountRate: Max transfer amount rate must greater the minimum rate.");
         emit MaxTransferAmountRateUpdated(msg.sender, maxTransferAmountRate, _maxTransferAmountRate);
         maxTransferAmountRate = _maxTransferAmountRate;
     }
